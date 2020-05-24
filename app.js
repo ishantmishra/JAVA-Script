@@ -54,3 +54,29 @@ b /=2
 
 var myStr = '"I am a "double quoted" string inside "double quotes"'
 console.log(myStr);
+
+var myStr = "FirstLine\n\t\\SecondLine\nThirdLine"
+console.log(myStr);
+
+var myStr = "This is the start. " + "This is the end."
+console.log(myStr);
+
+var ourStr = "I come first. ";
+ourStr += "I come ssecond";
+console.log(ourStr);
+
+var ourName = "Mishra";
+var ourStr = "Hello, our name is " + ourName + ", how are you";
+console.log(ourStr);
+
+var lastNameLength = 0;
+var lastName = "Mishra";
+
+lastNameLength = lastName.length;
+console.log(lastNameLength);
+
+ var firstLetterOfLastName = "";
+var lastName = "Mishra";
+
+firstLetterOfLastName = lastName[0];
+console.log(firstLetterOfLastName);
