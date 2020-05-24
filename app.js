@@ -192,4 +192,130 @@ function trueOrFalse(wasThatTrue)  {
     return "No, that was false";
 }
 
-trueOrFalse (true);
+console.log(trueOrFalse(true));
+
+function testEqual(val)  {
+    if  (val == 12) {
+        return "Equal";
+    }
+    return "Not Equal"
+}
+
+console.log(testEqual(10)); 
+
+function compareEquality(a, b) {
+    if (a == b) {
+        return "Equal";
+    }
+    return "Not Equal";
+}
+console.log(compareEquality(10, "10"));
+
+function testNotEqual(val) {
+    if (val != 99) {
+        return "Not Equal";
+    }
+    return "Euqal";
+}
+console.log(testNotEqual(10));
+
+function testStrictNotEqual(val) {
+    if (val !== 99) {
+        return "Not Equal";
+    }
+    return "Euqal";
+}
+console.log(testNotEqual(10));
+
+function testGreaterThan(val) {
+    if (val > 100) {
+        return "Over 100";
+    }
+    if (val > 10) {
+        return "Over 10";
+    }
+    return "10 or Under";
+}
+console.log(testGreaterThan(10));
+
+function testGreaterOrEqualThan(val) {
+    if (val >= 100) {
+        return "100 or Over";
+    }
+    if (val >= 10) {
+        return "10 or Over";
+    }
+    return "Less than 10";
+}
+console.log(testGreaterOrEqualThan(10));
+
+function testLessThan(val) {
+    if (val < 100) {
+        return "Under 100";
+    }
+    if (val < 10) {
+        return "Under 10";
+    }
+    return "10 or Over";
+}
+console.log(testLessThan(10));
+
+function testLessOrEqualThan(val) {
+    if (val <= 100) {
+        return "Less than or Equal to 100";
+    }
+    if (val <= 10) {
+        return "Less than or Equal to 10";
+    }
+    return "More than 10";
+}
+console.log(testLessOrEqualThan(10));
+
+function testLogicalAnd(val) {
+    if (val <= 50 && val >=25) {
+        return "Yes";
+    }
+    return "No";
+}
+console.log(testLogicalAnd(10));
+
+function testLogicalOr(val) {
+    if (val < 10 || val > 20) {
+        return "Outside";
+    }
+    return "Inside";
+}
+console.log(testLogicalOr(10));
+
+function testElseIf(val) {
+    if (val > 10) {
+        return "Greater than 10";
+    }
+    else if (val < 5) {
+        return "Smaller than 5";
+    }
+    else {
+        return "Between 5 and 10";
+    }
+}
+console.log(testElseIf(7));
+
+function testSize(num) {
+    if (num < 5) {
+        return "Tiny";
+    }
+    else if (num < 10) {
+        return "Small";
+    }
+    else if (num < 15) {
+        return "Medium";
+    }
+    else if (num < 20) {
+        return "Large";
+    }
+    else {
+        return "Huge";
+    }
+}
+
+console.log(testSize(23));
