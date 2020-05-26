@@ -1012,13 +1012,7 @@ temp = thermos.temperature;
 console.log("New Temp: "+ temp);
 
 
- //================================== Classes =============================================
-
- /*
- * Implement a Polygon class with the following properties:
- * 1. A constructor that takes an array of integer side lengths.
- * 2. A 'perimeter' method that returns the sum of the Polygon's side lengths.
- */
+ 
 class Polygon {
     constructor (sides){   // sides is an array 
         this._sides = sides;
@@ -1036,8 +1030,7 @@ class Polygon {
 const rectangle = new Polygon([10, 20, 10, 20]);
 console.log( "Area of Polygon is: " + rectangle.perimeter());
 
-// ================================== Extended Functional class ============================
-//create a method for a class outside class declaration;
+
 
 class Rectangle {
     constructor(w, h) {
@@ -1053,8 +1046,7 @@ Rectangle.prototype.area = function(){
     return this.w * this.h;
 }
 
-//=================================== Inheritance ==============================================
-// Square extends Rectangle and initializes sides.
+
 class Square extends Rectangle{
     constructor(s){
         super(s); // super needed to access the parent class members.
@@ -1069,8 +1061,6 @@ const sqr = new Square(3);
 console.log("Area of Base class rectangle: " + rec.area());
 console.log("Area of derived class Square: " + sqr.area());
 
-//==================================== Sync Callback ==================================================
-// callback is a function that gets passed to the parameter of another function and runs the functions call finishes
 
 const sayName = (name, cb) => {
     console.log('running the function sayName');
@@ -1083,13 +1073,7 @@ function callback(){
     console.log('Running the Callback function');
 }
 
-sayName('shashank', callback);  //Specifying the callback function name
-//===============================Async Callback ========================================================
-// first gets added to the callstack is then executes.
-// Nest, setTimeout gets added to the stack, since it has a callback function(arrow function) and is 
-// supposed to be executed after 2 seconds, it gets added to the webAPI stack and Call stack is cleared for next line.
-// Last gets printed
-// after 2 seconds, the callback gets called and id moved to the call stack and from Callback is printed.
+sayName('shashank', callback);  
 
 console.log('first');
 
@@ -1099,7 +1083,6 @@ setTimeout(() => {
 
 console.log('Last');
 
-//===================================== async await =======================================================
 
 async function getData(){
 
@@ -1107,7 +1090,7 @@ async function getData(){
         setTimeout(() => resolve('done'),3000);
     });
 
-    let result = await promise; // waits for 3 seconds for getting the result, because setTimeout() waits for 3 seconds.
-    console.log(result);        // we don't need to write then because of await
+    let result = await promise; 
+    console.log(result);       
 }
 getData();
