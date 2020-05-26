@@ -468,3 +468,220 @@ var testObj = {
 var entreeValue = testObj["an entree"];
 var drinkValue = testObj['the drink'];
 
+var testObj = {
+    12: "Namath",
+    16: "Montana",
+    19: "Unitas"
+};
+
+var playerNumber = 16;
+var player = testObj[playerNumber];
+
+var myDog = {
+    "name": "Coder",
+    "legs": 4,
+    "tails": 1,
+    "friends": ["freeCodeCamp Campers"]
+};
+
+myDog['bark'] = "woof!";
+delete myDog.friends;
+myDog.name = "Leo";
+console.log(myDog);
+
+function phoneticLookup(val) {
+    var result = "";
+
+    var lookup = {
+        "alpha": "Adams",
+        "bravo": "Boston",
+        "charlie": "Chicago",
+        "delta": "Denver",
+        "echo": "Easy",
+        "foxtrot": "frank"
+    };
+    result = lookup[val];
+    return result;
+}
+
+console.log(phoneticLookup("charlie"));
+
+var myObj = {
+    gift: "pony",
+    pet: "kitten",
+    bed: "sleigh"
+};
+
+function checkObj(checkProp) {
+    if (myObj.hasOwnProperty(checkProp)) {
+        return myObj[checkProp];
+    }
+    else {
+        return "Not Found";
+    }
+}
+console.log(checkObj("gift"));
+
+var myMusic = [
+    {
+        "artist": "Billy Joel",
+        "title": "Piano Man",
+        "release_year": 1972,
+        "formats": [
+            "CD",
+            "8T",
+            "LP"
+        ],
+        "gold": true
+    },
+    {
+        "artist": "Ishant Mishra",
+        "title": "Kun Faya Kun",
+        "release_year": 2020,
+        "formats": [
+            "YouTube Video"
+        ]
+    }
+];
+console.log(myMusic);
+
+var myStorage = {
+    "car": {
+        "inside": {
+            "glove box": "maps",
+            "passengers seat": "crumbs"
+        },
+        "outside": {
+            "trunk": "jack"
+        }
+    }
+};
+var gloveBoxContents = myStorage.car.inside["glove box"];
+console.log(gloveBoxContents);
+
+var myPlants = [
+    {
+        type: "flowers",
+        list: [
+            "rose",
+            "tulip",
+            "dandelion"
+        ]
+    },
+    {
+        type: "tress",
+        list: [
+            "fir",
+            "pine",
+            "birch"
+        ]
+    }
+];
+
+var secondTree = myPlants[1].list[1];
+console.log(myPlants[1].list[1]);
+
+var collection = {
+    "2548": {
+        "album": "Slippery When Wet",
+        "artist": "Bon Jovi",
+        "tracks": [
+            "Let It Rock",
+            "You Give Love A Bad Name"
+        ]
+    },
+    "2468": {
+        "album": "1999",
+        "artist": "Prince",
+        "tracks": [
+            "1999",
+            "Little Red Corvette"
+        ]
+    },
+    "1245": {
+        "artist": "Robert Palmer",
+        "tracks": []
+    },
+    "5439": {
+        "album": "ABBA Gold"
+    }
+};
+var collectionCopy = JSON.parse(JSON.stringify(collection));
+
+function updateRecords(id, prop, value) {
+    if (value === "") {
+        delete collection[id][prop];
+    } else if (prop === "tracks") {
+        collection[id][prop] = collection[id][prop] || [];
+        collection[id][prop].push(value);
+    } else {
+        collection[id][prop] = value;
+    }
+    return collection;
+}
+updateRecords(2468, "tracks", "test");
+console.log(updateRecords(5439, "artist", "ABBA"));
+
+var myArray = [];
+
+var i = 0;
+while(i < 10) {
+    myArray.push(i);
+    i++;
+}
+console.log(myArray);
+
+var ourArray = [];
+
+for (var i = 0; i < 5; i++) {
+    ourArray.push(i);
+}
+console.log(ourArray);
+var ourArray = [];
+
+for (var i = 10; i > 0; i -= 1) {
+    ourArray.push(i);
+}
+console.log(ourArray);
+
+var myArr = [2, 3, 4, 5, 6];
+var total = 0;
+
+for (var i = 0; i < myArr.length; i++) {
+    total += myArr[i];
+}
+console.log(total);
+
+function multiplyAll(arr) {
+    var product = 1;
+
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < arr[i].length; j++) {
+            product *= arr[i][j]
+        }
+    }
+    return product
+}
+var product = multiplyAll([[1,2],[3,4],[5,6,7]]);
+console.log(product);
+
+
+var myArray = [];
+var i = 10;
+do {
+    myArray.push(i);
+    i++;
+} while (i < 5)
+console.log(i, myArray);
+
+var contacts = [
+    {
+        "firstName": "Ishant",
+        "lastName": "Mishra",
+        "number": "9876543210",
+        "likes": ["Burgers", "Reading", "Football"]
+    },
+    {
+        "firstName": ""
+    }
+]
