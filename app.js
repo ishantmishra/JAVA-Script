@@ -682,6 +682,73 @@ var contacts = [
         "likes": ["Burgers", "Reading", "Football"]
     },
     {
-        "firstName": ""
+        "firstName": "Antony",
+        "lastName": "Vincent",
+        "number": "9876543211",
+        "likes": ["Pizza", "Cricket"]
+    },
+    {
+        "firstName": "Naman",
+        "lastName": "Jain",
+        "number": "9876543212",
+        "likes": ["Chinese", "Carrom"]
     }
-]
+    
+];
+function lookUpProfile(name, prop) {
+    for (var i = 0; i < contacts.length; i++) {
+        if (contacts[i].firstName === name) {
+            return contacts[i][prop] || "No such property";
+        }
+    }
+    return "No such contacts";
+}
+
+var data = lookUpProfile("Ishant", "likes");
+console.log(data);
+
+function randomFraction() {
+
+    return Math.random();
+}
+console.log(randomFraction());
+
+var randonNumberBetween0and19 = Math.floor(Math.random() * 20);
+
+function randomWholeNum() {
+
+    return Math.floor(Math.random() * 10);
+}
+console.log(randomWholeNum());
+
+function randomRange(myMin, myMax) {
+    return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+}
+var myRandom = randomRange(5,15);
+console.log(myRandom);
+
+function convertToInteger(str) {
+    return parseInt(str);
+}
+console.log(convertToInteger("25"));
+
+function convertToIntegers(str) {
+    return parseInt(str, 2)
+}
+
+console.log(convertToIntegers("10011"));
+
+function checkEqual(a,b){
+    return a === b ? true : false;
+    //return a === b;
+}
+
+console.log(checkEqual(2,2));
+
+
+function checkSign(num){
+    return num > 0 ? 'positive' : num < 0 ? 'negetive' : 'zero';
+}
+console.log(checkSign(10));
+console.log(checkSign(0));
+
