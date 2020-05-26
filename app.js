@@ -752,3 +752,362 @@ function checkSign(num){
 console.log(checkSign(10));
 console.log(checkSign(0));
 
+function freezeObject(){
+    const Math_Constant = {
+        PI: 3.14
+    };
+
+    Object.freeze(Math_Constant);
+
+    try{
+        Math_Constant.PI = 99;
+    } catch(ex){
+        console.log(ex);
+    }
+
+    return Math_Constant.PI;
+}
+
+console.log(freezeObject());
+
+var magic = function(){ // Anonymous function
+    return new Date();
+};
+console.log(magic());
+
+const arrowMagic = () => new Date();  // we skipped the {} because it only return the value
+console.log('Arrow Function: ' + arrowMagic());
+
+var concatArray = (array1,array2) => array1.concat(array2); 
+
+console.log(concatArray([1,2],[3,4,5]));
+
+const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+const squareList = (arr) => {
+    const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => x * x);
+    return squaredIntegers;
+};
+
+const squaredIntegers = squareList(realNumberArray);
+console.log(squaredIntegers);
+
+const increment = (function() {
+    return function increment(number, value = 1){  // defaulr value is 1 if no second parameter
+        return number + value;
+    };
+})();
+
+console.log(increment(5,2));
+console.log(increment(5));
+
+const sums = (function (){
+    return function sums(...args){
+        return args.reduce((a,b) => a + b, 0);
+    };
+})();
+
+console.log("sum is: " + sums(1,2,3)); //...3 arguments.
+console.log("Sum is : " + sums(1,2,3,2,4)); //5 arguments.
+
+const arr1 = ['JAN','FEB','MARCH','APRIL', 'MAY'];
+
+let arr2;
+(function(){
+    arr2 = [...arr1];
+    arr1[0] = 'potato'
+})();
+
+console.log(arr2); 
+console.log(arr1);
+
+var voxel = {
+    x: 3,
+    y: 4,
+    z: 5
+};
+
+// Old way 
+var x = voxel.x;
+var y = voxel.y;
+var z = voxel.z;
+
+//New Way, faster 
+
+const { x : m, y : n, z : o } = voxel;
+
+console.log(" sum of Variables is: " + m + n + o);
+
+//Destructuring with Nested objects
+
+const LOCAL_FORECAST = {
+    today : { min : 72, max : 83 },
+    tomorrow : { min : 75, max : 90 }
+};
+
+function getMaxOfTomorrow(forecast){
+
+    const {tomorrow : { max : maxOfTomorrow}} = forecast;
+    return maxOfTomorrow;
+}
+
+console.log(" max of Tomorrow is " + getMaxOfTomorrow(LOCAL_FORECAST));
+
+
+const source = [1,2,3,4,5,6,7];
+
+function removeFirstTwo(list){
+    const [ , , ...result] = list; //The commas skip the first 2 elements of list and copy the rest to result
+
+    return result;
+}
+
+const result = removeFirstTwo(source);
+console.log(result);
+
+//Use destructuring Assignment to pass Object as a function Parameter;
+// Passing only the properties which are needed to the function instead of passing the entire object.
+//Usefull in API calls
+
+const  statistics = {
+    max: 56.78,
+    median: 34.54,
+    mode: 23.87,
+    min: -0.75
+};
+
+const half = (function(){
+    return function half({max, min}){
+        return (max + min) / 2.0;
+    };
+})();
+console.log(" Displaying the sum of min and max: " + half(statistics));
+
+
+const person = {
+    name: 'Ishant Mishra',
+    age: 18
+};
+
+const greetings = `Hello my name is ${person.name}! 
+    I am ${person.age} years old.`;                
+
+console.log(greetings);
+
+
+
+const resultObj = {
+    success: ['max-length', 'no-amd', 'prefer-arrow-function'],
+    failure: ['no-var' ,'var-on-top' ,'linebreak'],
+    skipped: ['id-blacklist', 'no-dup-keys']
+};
+
+function makeList(arr){
+    const resultDisplayArray = [];
+
+    for(let i = 0; i < arr.length; i++){
+        resultDisplayArray.push(`<li class="text-warning">${arr[i]}</li>`);
+    }
+    return resultDisplayArray;
+}
+
+const resultDisplayArray = makeList(resultObj.failure);
+console.log(resultDisplayArray);
+
+
+//Tagged Template Literals:
+
+var a1 = 5;
+var b1 = 10;
+
+function foo(strings, ...values) {
+    console.log("." + strings[0] + ".");
+    console.log("." + strings[1] + ".");
+    console.log("." + strings[2] + ".");
+    console.log(values[0]);
+    console.log(values[1]);
+    console.log(values[2]);
+}
+
+foo`Sum is ${a1 + b1}
+Product is ${a1 * b1}
+Division is ${b1 / a1}`;
+
+
+
+const createPerson = (name,age,gender) => ({name,age,gender}); // no need to manually assign values
+console.log(createPerson('Ishant Mishra', 18, 'male'));
+
+
+
+//New Way
+const bicycle = {
+    gear: 2,
+    setGear(newGear) {
+        this.gear = newGear;
+    }
+};
+
+bicycle.setGear(3);
+console.log("Bicycle Gear: " + bicycle.gear);
+
+// class Syntax to Define a Constructor function
+
+class SpaceShuttle {
+    constructor(targetPlanet){
+        this.targetPlanet = targetPlanet;
+    }
+}
+
+var zeus = new SpaceShuttle('Jupiter');
+
+console.log(zeus.targetPlanet);
+
+//Getter and Setter for Class
+
+class Book {
+    constructor(author) {
+        this._author = author;
+    }
+    //getter
+    get writer(){
+        return this._author;
+    }
+
+    //setter
+    set writer(updateAuthor) {
+        this._author = updateAuthor;
+    }
+}
+
+//Example
+
+function makeClass() {
+
+    class Thermostat {
+        constructor(temp){
+            this._temp = 5/9 * (temp - 32);
+        }
+
+        get temperature(){
+            return this._temp;
+        }
+
+        set temperature(updatedTemp){
+            this._temp = updatedTemp;
+        }
+    }
+
+    return Thermostat;
+}
+
+const Thermostat = makeClass(); // Gets the Thermostat object
+const thermos = new Thermostat(76); // initialize temp to 76
+
+let temp = thermos.temperature; // no paranthese here
+
+console.log("OLD Temp: "+ temp);
+thermos.temperature = 26;
+temp = thermos.temperature;
+
+console.log("New Temp: "+ temp);
+
+
+ //================================== Classes =============================================
+
+ /*
+ * Implement a Polygon class with the following properties:
+ * 1. A constructor that takes an array of integer side lengths.
+ * 2. A 'perimeter' method that returns the sum of the Polygon's side lengths.
+ */
+class Polygon {
+    constructor (sides){   // sides is an array 
+        this._sides = sides;
+    }
+
+    perimeter(){
+        let perimeter = 0
+        for(let i = 0; i < this._sides.length; i++){
+            perimeter += this._sides[i];
+        }
+        return perimeter;
+    }
+}
+
+const rectangle = new Polygon([10, 20, 10, 20]);
+console.log( "Area of Polygon is: " + rectangle.perimeter());
+
+// ================================== Extended Functional class ============================
+//create a method for a class outside class declaration;
+
+class Rectangle {
+    constructor(w, h) {
+        this.w = w;
+        this.h = h;
+    }
+}
+
+/*
+ *  code that adds an 'area' method to the Rectangle class' prototype
+ */
+Rectangle.prototype.area = function(){
+    return this.w * this.h;
+}
+
+//=================================== Inheritance ==============================================
+// Square extends Rectangle and initializes sides.
+class Square extends Rectangle{
+    constructor(s){
+        super(s); // super needed to access the parent class members.
+        this.w = s;
+        this.h = s;
+    }
+}
+
+const rec = new Rectangle(3, 4);
+const sqr = new Square(3);
+
+console.log("Area of Base class rectangle: " + rec.area());
+console.log("Area of derived class Square: " + sqr.area());
+
+//==================================== Sync Callback ==================================================
+// callback is a function that gets passed to the parameter of another function and runs the functions call finishes
+
+const sayName = (name, cb) => {
+    console.log('running the function sayName');
+    console.log('running the function sayName');
+
+    cb();
+}
+
+function callback(){
+    console.log('Running the Callback function');
+}
+
+sayName('shashank', callback);  //Specifying the callback function name
+//===============================Async Callback ========================================================
+// first gets added to the callstack is then executes.
+// Nest, setTimeout gets added to the stack, since it has a callback function(arrow function) and is 
+// supposed to be executed after 2 seconds, it gets added to the webAPI stack and Call stack is cleared for next line.
+// Last gets printed
+// after 2 seconds, the callback gets called and id moved to the call stack and from Callback is printed.
+
+console.log('first');
+
+setTimeout(() => {
+    console.log('From Callback');
+},2000);
+
+console.log('Last');
+
+//===================================== async await =======================================================
+
+async function getData(){
+
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => resolve('done'),3000);
+    });
+
+    let result = await promise; // waits for 3 seconds for getting the result, because setTimeout() waits for 3 seconds.
+    console.log(result);        // we don't need to write then because of await
+}
+getData();
